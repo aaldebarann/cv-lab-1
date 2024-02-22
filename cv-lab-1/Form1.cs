@@ -144,6 +144,18 @@ namespace cv_lab_1
             }
         }
 
+        private void ğåçêîñòüToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filter filter = new SharpenFilter();
+            backgroundWorker.RunWorkerAsync(filter);
+        }
+
+        private void ÿğêîñòüToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filter filter = new BrightnessFilter();
+            backgroundWorker.RunWorkerAsync(filter);
+        }
+
         private void ôèëüòğÑîáåëÿYToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Filter filter = new SobelFilterY();
