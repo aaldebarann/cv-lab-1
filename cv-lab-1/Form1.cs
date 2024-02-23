@@ -156,6 +156,41 @@ namespace cv_lab_1
             backgroundWorker.RunWorkerAsync(filter);
         }
 
+        private void ôèëüòğûToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void òèñíåíèåToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filter filter = new EmbrossingFilter();
+            backgroundWorker.RunWorkerAsync(filter);
+        }
+
+        private void âîëíûToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filter filter = new WavesFilter();
+            backgroundWorker.RunWorkerAsync(filter);
+        }
+
+        private void ñòåêëîToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filter filter = new GlassFilter();
+            backgroundWorker.RunWorkerAsync(filter);
+        }
+
+        private void ñåğûéÌèğToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filter filter = new GrayWorldFilter();
+            backgroundWorker.RunWorkerAsync(filter);
+        }
+
+        private void ëèíåéíàÿÊîğğåêöèÿToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filter filter = new LinearFilter();
+            backgroundWorker.RunWorkerAsync(filter);
+        }
+
         private void ôèëüòğÑîáåëÿYToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Filter filter = new SobelFilterY();

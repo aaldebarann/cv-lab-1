@@ -11,20 +11,29 @@ namespace cv_lab_1
     {
         public Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
         {
-            Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
-            for (int i = 0; i < sourceImage.Width; i++)
+            Bitmap preprocessedImage = preprocessImage(sourceImage);
+            Bitmap resultImage = new Bitmap(preprocessedImage.Width, preprocessedImage.Height);
+            for (int i = 0; i < preprocessedImage.Width; i++)
             {
                 worker.ReportProgress((int)((float)i / resultImage.Width * 100));
                 if (worker.CancellationPending)
                     return null;
-                for (int j = 0; j < sourceImage.Height; j++)
+                for (int j = 0; j < preprocessedImage.Height; j++)
                 {
-                    resultImage.SetPixel(i, j, calculateNewPixelColor(sourceImage, i, j));
+                    resultImage.SetPixel(i, j, calculateNewPixelColor(preprocessedImage, i, j));
                 }
             }
-            return resultImage;
+            return postprocessImage(resultImage);
         }
         protected abstract Color calculateNewPixelColor(Bitmap sourceImage, int x, int y);
+        protected virtual Bitmap preprocessImage(Bitmap sourceImage)
+        {
+            return sourceImage;
+        }
+        protected virtual Bitmap postprocessImage(Bitmap sourceImage)
+        {
+            return sourceImage;
+        }
         public int Clamp(int value, int min, int max)
         {
             if (value < min)
